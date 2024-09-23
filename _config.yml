@@ -1,10 +1,10 @@
-title: "Blog Title"
-author: "Blog Author"
-description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
+title: "Jessica Lang"
+author: "Jessica Lang"
+description: "© 2024 Jessica Lang. Powered by Jekyll & the Contrast theme."color: #f45;\">&lt;3</b>"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
-date_format: "%B %d, %Y"
+date_format: "%d. %B %Y"
 
 # Layout
 
@@ -17,12 +17,14 @@ minimal: false             # use a dark header
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "index.html"}
+  - {file: "research.md"}
+  - {file: "teaching.md"}
+  - {file: "CV.md"}
   - {file: "README.md"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
-  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
-  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+  - {title: Mail, icon: envelope, url: "mailto:jessica.lang@eui.eu"}
+  - {title: ORCiD, icon: orcide, url: "https://orcid.org/0000-0002-8462-7534"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/
