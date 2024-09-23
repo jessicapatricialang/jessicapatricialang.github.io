@@ -1,7 +1,7 @@
 title: "Jessica Lang"
 author: "Jessica Lang"
 description: "© 2024 Jessica Lang. Powered by Jekyll, based on the the Contrast theme."
-permalink: /:title/
+permalink: /:welcome/
 lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%d %B %Y"
