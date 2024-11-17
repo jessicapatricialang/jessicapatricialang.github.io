@@ -41,34 +41,94 @@
 </footer>
 {% endif %}
 
-  <!-- Theme Toggle JavaScript -->
-<script>
-  // Retrieve the saved theme or system preference
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemPrefersDark ? '$dark' : '$light');
+  <style>
+      /* Ensure no borders or outlines for the icons */
+      .icon {
+        border: none
+        outline: none
+        box-shadow: none
+      }
 
-  // Apply the initial theme
-  document.documentElement.setAttribute('data-theme', initialTheme);
+      #theme-toggle {
+        border: none
+        outline: none
+        background: transparent
+        cursor: pointer
+        padding: 0
+      }
 
-  // Update the button's icon based on the theme
-  const themeIcon = document.getElementById('theme-icon');
-  themeIcon.textContent = initialTheme === '$dark' ? '🌙' : '🌞';
+      #theme-toggle svg {
+        border: none
+        outline: none
+        box-shadow: none
+      }
 
-  // Event listener for theme toggle button
-  document.getElementById('theme-toggle').addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === '$dark' ? '$light' : '$dark';
+      #theme-toggle img {
+        border: none
+        outline: none
+      }
 
-    // Apply the new theme
-    document.documentElement.setAttribute('data-theme', newTheme);
+      /* Using Sass variables for light and dark modes */
+      html[data-theme='dark'] {
+        background-color: $dark
+        color: $light
+      }
 
-    // Update the button icon
-    themeIcon.textContent = newTheme === '$dark' ? '🌙' : '🌞';
+      html[data-theme='light'] {
+        background-color: $light
+        color: $dark
+      }
 
-    // Save the user's preference
-    localStorage.setItem('theme', newTheme);
-  });
-</script>
+      html {
+        transition: background-color 0.3s, color 0.3s
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
+      {% include menu.html menu=pages %}
+    </header>
 
+    <div class="content">
+      {{ content }}
+    </div>
+
+    {% if site.external %}
+      <footer>
+        <div>{{ site.description | default: site.title }}</div>
+        {% include menu.html menu=site.external %}
+      </footer>
+    {% endif %}
+
+    <!-- Theme Toggle JavaScript -->
+    <script>
+      // Retrieve the saved theme or system preference
+      const savedTheme = localStorage.getItem('theme')
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light')
+
+      // Apply the initial theme
+      document.documentElement.setAttribute('data-theme', initialTheme)
+
+      // Update the button's icon based on the theme
+      const themeIcon = document.getElementById('theme-icon')
+      themeIcon.textContent = initialTheme === 'dark' ? '🌙' : '🌞'
+
+      // Event listener for theme toggle button
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme')
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+        // Apply the new theme
+        document.documentElement.setAttribute('data-theme', newTheme)
+
+        // Update the button icon
+        themeIcon.textContent = newTheme === 'dark' ? '🌙' : '🌞'
+
+        // Save the user's preference
+        localStorage.setItem('theme', newTheme)
+      })
+    </script>
+  </body>
 </html>
