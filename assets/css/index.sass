@@ -27,17 +27,21 @@ body > footer
   border-top: 1px solid reduce(14)
   opacity: .9
     
-details 
-  margin-top: 10px
-  margin-bottom: 10px
+details
+  margin-top: 0
+  margin-bottom: 0
   cursor: pointer
 
-
-summary 
+summary
   font-weight: bold
-  color: #007acc
+  color: black
+  padding: 0
+  list-style-type: none
+  display: inline
 
+summary::-webkit-details-marker
+  display: none
 
-summary:hover 
+summary:hover
   text-decoration: underline
 
